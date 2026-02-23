@@ -3,11 +3,11 @@
 {
 "FROM":
 [
-"ZAU_PROPOSITION"
+"ZAU_PM"
 ],
 "ASSOCIATED":
 [
-"ZR_AUPM"
+"ZR_AUPROPOSITION"
 ],
 "BASE":
 [],

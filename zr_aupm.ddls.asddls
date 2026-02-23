@@ -1,16 +1,15 @@
 @AccessControl.authorizationCheck: #MANDATORY
 @Metadata.allowExtensions: true
-@ObjectModel.sapObjectNodeType.name: 'ZAUPROPOSITION'
+@ObjectModel.sapObjectNodeType.name: 'ZAUPM'
 @EndUserText.label: '###GENERATED Core Data Service Entity'
-define view entity ZR_AUPROPOSITION
-  as select from zau_proposition
-  association to parent ZR_AUPM as _pm on _pm.ID = $projection.pmkey
-
+define root view entity ZR_AUPM
+  as select from zau_pm  
+  composition [0..*] of ZR_AUPROPOSITION as _prop
+  
 {
-  key uuid as UUID,
-  original_text as OriginalText,
-  category as Category,
-  summary as Summary,
+  key id as ID,
+  dep_name as DepName,
+  description as Description,
   @Semantics.user.createdBy: true
   created_by as CreatedBy,
   @Semantics.systemDateTime.createdAt: true
@@ -21,6 +20,5 @@ define view entity ZR_AUPROPOSITION
   last_changed_at as LastChangedAt,
   @Semantics.systemDateTime.localInstanceLastChangedAt: true
   local_last_changed_at as LocalLastChangedAt,
-  pmkey,
-  _pm
+  _prop
 }

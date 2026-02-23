@@ -1,0 +1,13 @@
+@EndUserText: {
+  label: 'Service Definition for ZC_AUPM'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZC_AUPM'
+  }
+}
+define service ZUI_AUPM_O4
+  provider contracts odata_v4_ui {
+  expose ZC_AUPM;
+  expose ZC_AUPROPOSITION;
+}

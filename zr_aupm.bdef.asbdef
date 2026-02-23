@@ -1,0 +1,79 @@
+managed implementation in class ZBP_R_AUPM unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZR_AUPM alias ZrAupm
+persistent table ZAU_PM
+extensible
+draft table ZAUPM_D
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master( global )
+{
+  field ( numbering : managed )
+   ID;
+
+  field ( readonly )
+   CreatedBy,
+   CreatedAt,
+   LastChangedBy,
+   LastChangedAt,
+   LocalLastChangedAt;
+
+  field ( readonly : update )
+   ID;
+
+
+  create;
+  update;
+  delete;
+association _prop { create; }
+action pushtojira;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZAU_PM corresponding extensible
+  {
+    ID = ID;
+    DepName = DEP_NAME;
+    Description = DESCRIPTION;
+    CreatedBy = CREATED_BY;
+    CreatedAt = CREATED_AT;
+    LastChangedBy = LAST_CHANGED_BY;
+    LastChangedAt = LAST_CHANGED_AT;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+  }
+
+}
+define behavior for ZR_AUPROPOSITION alias proposition
+persistent table zau_proposition
+draft table zauproposition_d
+lock dependent by _pm
+authorization dependent by _pm
+etag master LocalLastChangedAt
+{
+  field ( numbering : managed ) UUID;
+  field ( readonly ) pmkey;
+  field ( readonly ) CreatedBy, CreatedAt, LastChangedBy, LastChangedAt, LocalLastChangedAt;
+
+  update;
+  delete;
+
+  association _pm;
+  action pushtojira;
+  mapping for zau_proposition {
+    UUID             = uuid;
+    OriginalText     = original_text;
+    Category         = category;
+    Summary          = summary;
+    CreatedBy        = created_by;
+    CreatedAt        = created_at;
+    LastChangedBy    = last_changed_by;
+    LastChangedAt    = last_changed_at;
+    LocalLastChangedAt = local_last_changed_at;
+    pmkey            = pmkey;
+  }
+}
