@@ -1,0 +1,13 @@
+@EndUserText: {
+  label: 'Service Definition for ZC_AU_CDS_OV'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZC_AU_CDS_OV'
+  }
+}
+define service ZUI_AU_CDS_OV_O4
+  provider contracts odata_v4_ui {
+  expose ZC_AU_CDS_OV;
+  expose ZC_AUSURVEY;
+}
