@@ -4,22 +4,16 @@
   label: '###GENERATED Core Data Service Entity'
 }
 @ObjectModel: {
-  sapObjectNodeType.name: 'ZAUPROPOSITION'
+  sapObjectNodeType.name: 'ZAUPM'
 }
 @AccessControl.authorizationCheck: #MANDATORY
-define view entity ZC_AUPROPOSITION
-  as projection on ZR_AUPROPOSITION
+define root view entity ZC_AUPM
+  provider contract transactional_query
+  as projection on ZR_AUPM
 {
- @UI.lineItem: [{ position: 10 }]
-  @UI.identification: [{ position: 10 }]
-  key UUID,
-  OriginalText,
-   @UI.lineItem: [{ position: 20 }]
-  @UI.identification: [{ position: 20 }]
-  Category,
-   @UI.lineItem: [{ position: 30 }]
-  @UI.identification: [{ position: 30 }]
-  Summary,
+  key ID,
+  DepName,
+  Description,
   @Semantics: {
     user.createdBy: true
   }
@@ -40,6 +34,6 @@ define view entity ZC_AUPROPOSITION
     systemDateTime.localInstanceLastChangedAt: true
   }
   LocalLastChangedAt,
-  pmkey,
-  _pm: redirected to parent ZC_AUPM
+  _prop : redirected to composition child ZC_AUPROPOSITION
+  
 }

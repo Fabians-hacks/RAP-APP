@@ -1,0 +1,10 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "SAP Object Node Type ZAUPM",
+    "originalLanguage": "en"
+  },
+  "name": "ZAUPM",
+  "sapObjectType": "ZAUPM",
+  "rootNode": true
+}
