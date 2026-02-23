@@ -1,0 +1,43 @@
+managed implementation in class ZBP_R_AUDUMP unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZR_AUDUMP alias ZrAudump
+persistent table ZAU_DUMP
+draft table ZAUDUMP_D
+etag master LocalLastChanged
+lock master total etag LastChanged
+authorization master( global )
+{
+  field ( readonly )
+   LocalLastChanged,
+   LastChanged;
+
+  field ( numbering : managed ) id;
+
+  create;
+  update;
+  delete;
+
+
+  determination executeoncreate on save { create; }
+  action portdatatosurvey;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZAU_DUMP
+  {
+    ID = ID;
+    Filename = FILENAME;
+    Mimetype = MIMETYPE;
+    Attachment = ATTACHMENT;
+    CreatedBy = CREATED_BY;
+    CreatedAt = CREATED_AT;
+    LocalLastChanged = LOCAL_LAST_CHANGED;
+    LastChanged = LAST_CHANGED;
+    isCleaned = is_cleaned;
+  }
+}

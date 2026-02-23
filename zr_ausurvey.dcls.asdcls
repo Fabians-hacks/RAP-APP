@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZR_AUSURVEY'
+@MappingRole: true
+define role ZR_AUSURVEY {
+  grant select on ZR_AUSURVEY
+  where TRUE;
+}

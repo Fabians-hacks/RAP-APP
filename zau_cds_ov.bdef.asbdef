@@ -1,0 +1,46 @@
+managed implementation in class zbp_au_cds_ov unique;
+strict ( 2 );
+with draft;
+define behavior for ZAU_CDS_OV
+persistent table zau_ov_survey
+draft table zau_ov_surveyd
+lock master total etag LastChanged
+authorization master ( instance )
+{
+  create ( authorization : global );
+  update;
+  delete;
+  action analyze_with_ai;
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+  field ( readonly, numbering : managed ) SurveyId;
+  association _survey { create; }
+  mapping for zau_ov_survey corresponding
+  {
+    SurveyId = survey_id;
+  }
+}
+
+define behavior for ZR_AUSURVEY
+persistent table zau_survey
+draft table zau_surveyd
+lock dependent by _ov
+authorization dependent by _ov
+{
+
+  update;
+  delete;
+  field ( readonly, numbering : managed ) QuestionID;
+  field ( readonly ) SurveyId;
+  association _ov;
+
+   mapping for zau_survey corresponding
+  {
+    QuestionID = question_id;
+    SurveyId   = survey_id;
+  }
+
+}

@@ -1,0 +1,25 @@
+@Metadata.layer: #CORE
+@UI.headerInfo.title.type: #STANDARD
+@UI.headerInfo.title.value: 'SurveyId'
+@UI.headerInfo.description.type: #STANDARD
+@UI.headerInfo.description.value: 'SurveyId'
+
+annotate view ZC_AU_CDS_OV with
+{
+  @UI.facet: [
+    { label: 'General Information', id: 'GeneralInfo', purpose: #STANDARD, position: 10, type: #IDENTIFICATION_REFERENCE },
+    { label: 'Items', id: 'Items', purpose: #STANDARD, position: 11, type: #LINEITEM_REFERENCE, targetElement: '_survey' }
+  ]
+  @UI.lineItem: [
+    { position: 10 },                            // ← this makes SurveyId a column (auto-selected)
+    { type: #FOR_ACTION, dataAction: 'analyze_with_ai', label: 'Analyze with AI', position: 20 }
+  ]
+  @UI.identification: [{ position: 10 }]
+  @UI.selectionField: [{ position: 10 }]
+  SurveyId;
+  @UI.lineItem: [
+    { position: 20 }]
+  @UI.selectionField: [{ position: 20 }]
+  filename;
+  
+}

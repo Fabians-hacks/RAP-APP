@@ -1,0 +1,23 @@
+CLASS zau_data_analysis DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+    CLASS-METHODS analyze.
+  PROTECTED SECTION.
+  PRIVATE SECTION.
+ENDCLASS.
+
+
+
+CLASS zau_data_analysis IMPLEMENTATION.
+  METHOD analyze.
+
+
+
+
+
+  ENDMETHOD.
+
+ENDCLASS.

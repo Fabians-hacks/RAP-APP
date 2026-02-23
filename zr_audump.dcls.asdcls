@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZR_AUDUMP'
+@MappingRole: true
+define role ZR_AUDUMP {
+  grant select on ZR_AUDUMP
+  where TRUE;
+}

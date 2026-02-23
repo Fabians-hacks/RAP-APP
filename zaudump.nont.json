@@ -1,0 +1,10 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "SAP Object Node Type ZAUDUMP",
+    "originalLanguage": "en"
+  },
+  "name": "ZAUDUMP",
+  "sapObjectType": "ZAUDUMP",
+  "rootNode": true
+}

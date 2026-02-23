@@ -1,0 +1,10 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "SAP Object Node Type ZAUPROPOSITION",
+    "originalLanguage": "en"
+  },
+  "name": "ZAUPROPOSITION",
+  "sapObjectType": "ZAUPROPOSITION",
+  "rootNode": true
+}

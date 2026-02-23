@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZC_AUSURVEY'
+@MappingRole: true
+define role ZC_AUSURVEY {
+  grant select on ZC_AUSURVEY
+  where INHERITING CONDITIONS FROM ENTITY ZR_AUSURVEY DEFAULT TRUE;
+}

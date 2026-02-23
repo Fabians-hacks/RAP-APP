@@ -1,0 +1,11 @@
+@EndUserText: {
+  label: 'Service Definition for ZC_AUSURVEY'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZC_AUSURVEY'
+  }
+}
+define service ZAPI_AUSURVEY_O4 provider contracts odata_v4_webapi {
+  expose ZC_AUSURVEY;
+}

@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZC_AUPROPOSITION'
+@MappingRole: true
+define role ZC_AUPROPOSITION {
+  grant select on ZC_AUPROPOSITION
+  where INHERITING CONDITIONS FROM ENTITY ZR_AUPROPOSITION DEFAULT TRUE;
+}

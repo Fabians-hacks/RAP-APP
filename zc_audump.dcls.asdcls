@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZC_AUDUMP'
+@MappingRole: true
+define role ZC_AUDUMP {
+  grant select on ZC_AUDUMP
+  where INHERITING CONDITIONS FROM ENTITY ZR_AUDUMP DEFAULT TRUE;
+}

@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZR_AUPROPOSITION'
+@MappingRole: true
+define role ZR_AUPROPOSITION {
+  grant select on ZR_AUPROPOSITION
+  where TRUE;
+}

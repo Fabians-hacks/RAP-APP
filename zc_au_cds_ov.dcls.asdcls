@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZC_AU_CDS_OV'
+@MappingRole: true
+define role ZC_AU_CDS_OV {
+  grant select on ZC_AU_CDS_OV
+  where INHERITING CONDITIONS FROM ENTITY ZAU_CDS_OV DEFAULT TRUE;
+}
